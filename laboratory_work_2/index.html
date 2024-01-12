@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Лабораторная работа 2 - Web-Programming</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 2";
+        var mkdocs_page_input_path = "laboratory_work_2.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Web-Programming
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_1/">Лабораторная работа 1</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Лабораторная работа 2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Задание</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Реализация</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Создание проекта</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Создание моделей базы данных</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#view">Реализация view</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#urls">Добавления urls</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_3/">Лабораторная работа 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_4/">Лабораторная работа 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../practical_work_3-1/">Практическая работа 3.1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Web-Programming</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Лабораторная работа 2</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="2">Лабораторная работа 2</h1>
+<h2 id="_1">Задание</h2>
+<p>Реализовать веб сервис "Список туров туристической фирмы".
+Хранится информация о названии тура, турагенстве, описании тура, периоде
+проведения тура, условиях оплаты.
+Необходимо реализовать следующий функционал:
+- Регистрация новых пользователей.
+- Просмотр и резервирование туров. Пользователь должен иметь возможность
+редактирования и удаления своих резервирований.
+- Написание отзывов к турам. При добавлении комментариев, должнысохраняться даты тура, текст комментария, рейтинг (1-10), информация о
+комментаторе.
+- Администратор должен иметь возможность подтвердить резервирование
+тура средствами Django-admin.
+- В клиентской части должна формироваться таблица, отображающая все
+проданные туры по странам.</p>
+<h2 id="_2">Реализация</h2>
+<h3 id="_3">Создание проекта</h3>
+<p>Для начала нам необходимо создать виртуальную среду для Python, установить Django и
+создать проект</p>
+<pre><code class="language-sh">python -m venv tours-venv
+pip install django
+django-admin starproject tours
+</code></pre>
+<p>После создания проекта нам необходимо добавить в данный проект приложение, которое мы будем разрабатывать</p>
+<pre><code class="language-sh">./manage.py startapp tours_app
+</code></pre>
+<h3 id="_4">Создание моделей базы данных</h3>
+<p><code>Traveler</code> модель используется для авторизации пользователей. Мы используем свою модель, чтобы в дальнейшем было легче вносить изменения в модель пользователя</p>
+<pre><code class="language-python">class Traveler(AbstractUser):
+    pass
+</code></pre>
+<p>Для того, чтобы Django использовал данную модель для входа/регистрации нам необходимо добавить строку в <code>settings.py</code></p>
+<pre><code class="language-python">AUTH_USER_MODEL = &quot;tours_app.Traveler&quot;
+</code></pre>
+<p>Модель <code>Tour</code> хранит в себе информацию об имене, описании, стране проведения, деталях оплаты и агенстве, которое организовывает данный тур</p>
+<pre><code class="language-python">class Tour(Model):
+    name = CharField(max_length=200)
+    description = TextField(null=True)
+    country = ForeignKey(&quot;Country&quot;, CASCADE)
+    payment_details = TextField()
+    tour_agency = ForeignKey(&quot;TourAgency&quot;, CASCADE)
+
+    def __str__(self) -&gt; str:
+        return self.name
+</code></pre>
+<p><code>TourDate</code> хранит даты начала и окончания тура, связанные с конкретным туром.</p>
+<pre><code class="language-python">class TourDate(Model):
+    tour = ForeignKey(Tour, CASCADE)
+    start_date = DateField()
+    end_date = DateField()
+</code></pre>
+<p>Модель <code>Reservation</code> связывает туриста (Traveler) с конкретной датой тура (TourDate). Она содержит информацию о времени бронирования и подтверждения брони.</p>
+<pre><code class="language-python">class Reservation(Model):
+    traveler = ForeignKey(Traveler, CASCADE)
+    tour_date = ForeignKey(TourDate, CASCADE)
+    reserved_at = DateTimeField(auto_now_add=True)
+    confirmed = BooleanField(default=False)
+</code></pre>
+<p><code>Review</code> позволяет туристам оставлять отзывы о конкретной дате тура. Он содержит комментарий, рейтинг и дату отзыва.</p>
+<pre><code class="language-python">class Review(Model):
+    tour_date = ForeignKey(TourDate, CASCADE)
+    traveler = ForeignKey(Traveler, CASCADE)
+    review_datetime = DateTimeField(auto_now_add=True)
+    comment = TextField()
+    rating = IntegerField(validators=[MinValueValidator(1), MaxValueValidator(10)])
+</code></pre>
+<p><code>TourAgency</code> хранит информацию об агентствах, предоставляющих туры. Она содержит имя агентства и устанавливает связь "многие ко многим" с моделью <code>Tour</code>.</p>
+<pre><code class="language-python">class TourAgency(Model):
+    name = CharField(max_length=50)
+    tours = ManyToManyField(Tour)
+</code></pre>
+<p>Модель <code>Country</code> содержит информацию о стране, используемую для указания страны, в которой предлагается тур.</p>
+<pre><code class="language-python">class Country(Model):
+    code = CharField(max_length=3)  # iso 3166
+    display_name = CharField(max_length=50)
+</code></pre>
+<p>Эти модели взаимосвязаны между собой, предоставляя базу данных для отслеживания туров, бронирования, отзывов и информации об агентствах и странах.</p>
+<h3 id="view">Реализация view</h3>
+<p>Для пользователя используются несколько различных view, но для примера стоит показать view входа.
+Данная функция <code>login_traveler_view</code> предназначена для обработки запросов на вход пользователя на сайт в качестве туриста. Она использует форму <code>LoginForm</code> для проверки предоставленных учетных данных (логина и пароля) и осуществляет вход пользователя в случае успешной проверки.</p>
+<pre><code class="language-python">class LoginForm(Form):
+    username = CharField()
+    password = CharField(widget=PasswordInput)
+
+
+def login_traveler_view(request: HttpRequest) -&gt; HttpResponse:
+    form = LoginForm(request.POST or None)
+    if request.method == &quot;GET&quot;:
+        return render(request, join(__BASE_TEMPLATE_PATH, &quot;login.html&quot;), dict(form=form))
+
+    if not form.is_valid():
+        return render(request, join(__BASE_TEMPLATE_PATH, &quot;invalid_login.html&quot;))
+
+    cd = form.cleaned_data
+    try:
+        user = Traveler.objects.get(username=cd[&quot;username&quot;])
+    except Traveler.DoesNotExist:
+        return render(request, join(__BASE_TEMPLATE_PATH, &quot;invalid_login.html&quot;))
+    if user.password != cd[&quot;password&quot;]:
+        return render(request, join(__BASE_TEMPLATE_PATH, &quot;invalid_login.html&quot;))
+
+    login(request, user)
+    return redirect(f&quot;/profile/{user.pk}&quot;)
+
+</code></pre>
+<p>HTML-шаблон представляет собой страницу входа и использует наследование от базового шаблона <code>base.html</code>. Он содержит блоки для заголовка и основного содержимого страницы.</p>
+<pre><code class="language-html">{% extends &quot;base.html&quot; %}
+
+{% block header %}
+    &lt;title&gt;Login&lt;/title&gt;
+{% endblock %}
+
+{% block body %}
+    &lt;h1&gt;Login&lt;/h1&gt;
+
+    &lt;form method=&quot;POST&quot; enctype=&quot;multipart/form-data&quot;&gt;
+
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        &lt;input type=&quot;submit&quot; value=&quot;Login&quot;&gt;
+    &lt;/form&gt;
+{% endblock %}
+</code></pre>
+<p>Для резерва определенных дат на тур используется функция <code>reserve_tour_date_view</code></p>
+<pre><code class="language-python">def reserve_tour_date_view(request: HttpRequest, pk: int) -&gt; HttpResponse:
+    if (user := request.user).is_anonymous:
+        return redirect(&quot;/login&quot;)
+
+    try:
+        tour_date = TourDate.objects.get(pk=pk)
+    except Tour.DoesNotExist:
+        raise Http404(&quot;Tour doesn't exist&quot;)
+
+    reservation = Reservation(traveler=user, tour_date=tour_date)
+    reservation.save()
+
+    return render(request, join(__BASE_TEMPLATE_PATH, &quot;reserved.html&quot;), dict(user=user, tour_date=tour_date))
+
+</code></pre>
+<p>В случае успешного резерва показывается следующая страница</p>
+<pre><code class="language-html">{% extends &quot;base.html&quot; %}
+
+{% block header %}
+    &lt;title&gt;Reserved&lt;/title&gt;
+{% endblock %}
+
+{% block body %}
+    &lt;h3&gt;You reserved {{ tour_date.tour.name }} for {{ tour_date.start_date }}&lt;/h3&gt;
+    &lt;p&gt;Check your reservations in the profile page&lt;/p&gt;
+{% endblock %}
+</code></pre>
+<h3 id="urls">Добавления urls</h3>
+<p>В нашем приложении мы создали различные представления и хотим показывать их при переходе на определенный путь в браузере. Для этого создадим файл <code>urls.py</code> со следующим содержанием</p>
+<pre><code class="language-python">from django.urls import path
+
+from . import views
+
+urlpatterns = [
+    path(&quot;signup&quot;, views.create_traveler_view),
+    path(&quot;login&quot;, views.login_traveler_view),
+    path(&quot;profile/&lt;int:pk&gt;&quot;, views.traveler_profile_view),
+    path(&quot;profile&quot;, views.traveler_profile_view),
+    path(&quot;tours&quot;, views.all_tours_view),
+    path(&quot;reserve/&lt;int:pk&gt;&quot;, views.reserve_tour_date_view),
+    path(&quot;cancel_reservation/&lt;int:pk&gt;&quot;, views.cancel_reservation_view),
+    path(&quot;review_tour/&lt;int:pk&gt;&quot;, views.write_tour_review_view),
+    path(&quot;sold_by_country&quot;, views.sold_tour_dates_by_country_view)
+]
+</code></pre>
+<p>Более того, для успешной работы всех путей нам необходимо подключить данный файл из нашего проекта. Для этого изменим содержимое файла <code>urls.py</code> в проекте</p>
+<pre><code class="language-python">urlpatterns = [path(&quot;admin/&quot;, admin.site.urls), path(&quot;&quot;, include(&quot;tours_app.urls&quot;))]
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../laboratory_work_1/" class="btn btn-neutral float-left" title="Лабораторная работа 1"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../laboratory_work_3/" class="btn btn-neutral float-right" title="Лабораторная работа 3">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../laboratory_work_1/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../laboratory_work_3/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

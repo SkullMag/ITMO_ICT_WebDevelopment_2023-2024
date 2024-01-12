@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Лабораторная работа 4 - Web-Programming</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 4";
+        var mkdocs_page_input_path = "laboratory_work_4.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Web-Programming
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_1/">Лабораторная работа 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_2/">Лабораторная работа 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_3/">Лабораторная работа 3</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Лабораторная работа 4</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Задание</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#_2">Решение</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#mainjs">main.js</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#storeindexjs">store/index.js</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#apiindexjs">api/index.js</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#viewsauthviewvue">views/AuthView.vue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#viewsprofileviewvue">views/ProfileView.vue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#viewspostsviewvue">views/PostsView.vue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#viewspostviewvue">views/PostView.vue</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#viewscommentsviewvue">views/CommentsView.vue</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../practical_work_3-1/">Практическая работа 3.1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Web-Programming</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Лабораторная работа 4</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="4">Лабораторная работа 4</h1>
+<h2 id="_1">Задание</h2>
+<p>Реализация клиентской части приложения средствами vue.js.</p>
+<h2 id="_2">Решение</h2>
+<h3 id="mainjs">main.js</h3>
+<p>Создадим наше приложение, подключив к нему роутер и pinia для state management</p>
+<pre><code class="language-js">import { createApp } from 'vue'
+import { createPinia } from 'pinia'
+import App from './App.vue'
+import router from './router'
+
+const pinia = createPinia()
+const app = createApp(App)
+app.use(pinia)
+app.use(router)
+
+app.mount('#app')
+</code></pre>
+<h3 id="storeindexjs">store/index.js</h3>
+<p>Создадим глобальное хранилище для пользовательских данных.
+Нам они понадобятся для реализации входа, регистрации и профиля пользователя.</p>
+<p>Для данной лабораторной работы нам понадобится хранение и получение пароля, имени пользователя и электронной почты</p>
+<pre><code class="language-js">import { defineStore } from 'pinia'
+
+export const useAuthStore = defineStore('auth', {
+  state: () =&gt; ({ password: localStorage.getItem(&quot;password&quot;), username: localStorage.getItem(&quot;username&quot;), token: localStorage.getItem(&quot;auth_token&quot;) }),
+  getters: {
+    userData: (state) =&gt; state
+  },
+  actions: {
+    login(username, password, token) {
+      this.username = username
+      this.password = password
+      this.token = token
+      localStorage.setItem(&quot;auth_token&quot;, token)
+      localStorage.setItem(&quot;username&quot;, username)
+      localStorage.setItem(&quot;password&quot;, password)
+    }
+  }
+})
+</code></pre>
+<h3 id="apiindexjs">api/index.js</h3>
+<p>Так как наш backend использует авторизацию при помощи токенов нам необходимо
+добавить функцию, которая будет перед отправкой запроса добавлять <code>Authorization</code> header 
+с токеном пользователя.</p>
+<p>Я выбрал axios в качестве библиотеки для HTTP запросов</p>
+<pre><code class="language-js">import axios from 'axios'
+const instance = axios.create({
+  baseURL: 'http://localhost:8080',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+})
+instance.interceptors.request.use(function (cfg) {
+  const authToken = localStorage.getItem(&quot;auth_token&quot;)
+  if (authToken !== null &amp;&amp; authToken !== &quot;undefined&quot;) {
+    cfg.headers.Authorization = `Token ${authToken}`
+
+  }
+  return cfg
+}, function (error) {
+  return Promise.reject(error)
+})
+export default instance
+</code></pre>
+<h3 id="viewsauthviewvue">views/AuthView.vue</h3>
+<p>В представлении страницы для авторизации нам необходимо реализовать два метода - один для входа, а другой для регистрации.</p>
+<pre><code class="language-js">&lt;script&gt;
+import api from '@/api'
+import router from '@/router'
+import { useAuthStore } from '@/store/auth'
+export default {
+  data() {
+    this.authStore = useAuthStore()
+    return {
+      signupData: {
+        email: '',
+        username: '',
+        password: '',
+      },
+      loginData: {
+        email: '',
+        username: '',
+        password: '',
+      },
+    }
+  },
+  methods: {
+    login() {
+      api
+        .post('auth/token/login', {
+          username: this.loginData.username,
+          password: this.loginData.password,
+        })
+        .then((resp) =&gt; resp.data)
+        .then((data) =&gt; {
+          this.authStore.login(
+            this.loginData.username,
+            this.loginData.password,
+            data.auth_token
+          )
+          router.push({ path: '/profile' })
+        })
+    },
+    signup() {
+      api
+        .post('api/users/', {
+          email: this.signupData.email,
+          username: this.signupData.username,
+          password: this.signupData.password,
+        })
+        .then((resp) =&gt; resp.data)
+        .then((data) =&gt; {
+          this.authStore.login(
+            this.signupData.username,
+            this.signupData.password,
+            data.auth_token
+          )
+          router.push({ path: '/profile' })
+        })
+    },
+  },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;login&quot;&gt;
+    &lt;h3&gt;Login&lt;/h3&gt;
+    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot; v-model=&quot;loginData.username&quot; /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot; v-model=&quot;loginData.password&quot; /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;button v-on:click=&quot;login&quot;&gt;Login&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;div class=&quot;signup&quot;&gt;
+    &lt;h3&gt;Sign Up&lt;/h3&gt;
+    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;email&quot; v-model=&quot;signupData.email&quot; /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot; v-model=&quot;signupData.username&quot; /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;label for=&quot;password&quot;&gt;Password&lt;/label&gt;
+    &lt;input type=&quot;password&quot; name=&quot;password&quot; v-model=&quot;signupData.password&quot; /&gt;
+    &lt;br /&gt;
+    &lt;br /&gt;
+    &lt;button v-on:click=&quot;signup&quot;&gt;Sign Up&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="viewsprofileviewvue">views/ProfileView.vue</h3>
+<p>Далее нам необходимо реализовать представление для профиля пользователя, в котором
+можно будет изменять данные пользователя.</p>
+<p>Для начала нам необходимо добавить новый ViewSet на нашем сервере, чтобы 
+мы могли получать данные о пользователе не только при помощи ключа, но и
+при помощи имени пользователя</p>
+<pre><code class="language-python">class UsernameViewSet(viewsets.ViewSet):
+  def partial_update(self, req:Request, pk=None):
+    queryset = User.objects.all()
+    user = get_object_or_404(queryset, username=pk)
+    user.__dict__.update(req.data)
+    user.save()
+    return Response()
+  def retrieve(self, _, pk=None):
+    queryset = User.objects.all()
+    serializer = MyUserSerializer(get_object_or_404(queryset, username=pk))
+    return Response(serializer.data)
+</code></pre>
+<p>После этого можно реализовать логику обращения к серверу и отображения данных на странице.
+Метод beforeMount вызывается прямо перед подключением компонента</p>
+<pre><code class="language-js">&lt;script&gt;
+import { useAuthStore } from '@/store/auth'
+import router from '@/router'
+import api from '@/api'
+export default {
+  data() {
+    this.authStore = useAuthStore()
+    if (this.authStore.userData.username === '') {
+      router.push({ path: '/auth' })
+      return
+    }
+    this.authStore.userData.email = ''
+    this.authStore.userData.bio = ''
+    return this.authStore.userData
+  },
+  methods: {
+    updateUserData() {
+      api.patch(`api/username/${this.username}/`, {
+        email: this.email,
+        username: this.username,
+        bio: this.bio,
+      })
+    },
+  },
+
+  beforeMount() {
+    api
+      .get(`api/username/${this.username}`)
+      .then((resp) =&gt; resp.data)
+      .then((data) =&gt; {
+        console.log(data)
+        this.username = data.username
+        this.email = data.email
+        this.bio = data.bio
+      })
+  },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class=&quot;userInfo&quot;&gt;
+    &lt;label for=&quot;username&quot;&gt;Username&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;text&quot; name=&quot;username&quot; v-model=&quot;username&quot; /&gt;
+    &lt;br /&gt;&lt;br /&gt;
+    &lt;label for=&quot;email&quot;&gt;Email&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;input type=&quot;email&quot; name=&quot;email&quot; v-model=&quot;email&quot; /&gt;
+    &lt;br /&gt;&lt;br /&gt;
+    &lt;label for=&quot;bio&quot;&gt;Bio&lt;/label&gt;
+    &lt;br /&gt;
+    &lt;textarea name=&quot;bio&quot; cols=&quot;30&quot; rows=&quot;3&quot; v-model=&quot;bio&quot;&gt;&lt;/textarea&gt;
+    &lt;br /&gt;&lt;br /&gt;
+    &lt;button v-on:click=&quot;updateUserData&quot;&gt;Update&lt;/button&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+.userInfo {
+  padding-top: 20px;
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="viewspostsviewvue">views/PostsView.vue</h3>
+<p>Создадим представление для публикаций пользователей</p>
+<pre><code class="language-js">&lt;script&gt;
+import api from '@/api'
+import Post from '@/components/Post.vue'
+import router from '@/router'
+export default {
+  data() {
+    return { posts: [] }
+  },
+  components: {
+    Post,
+  },
+  methods: {
+    getPosts() {
+      api
+        .get('api/posts/')
+        .then((resp) =&gt; resp.data)
+        .then((data) =&gt; (this.posts = data))
+        .catch(() =&gt; alert('Failed to fetch posts'))
+    },
+    newPost() {
+      router.push({ path: '/newpost' })
+    },
+  },
+  beforeMount() {
+    this.getPosts()
+  },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;br /&gt;
+  &lt;button v-on:click=&quot;newPost&quot;&gt;New post&lt;/button&gt;
+  &lt;ol class=&quot;posts&quot;&gt;
+    &lt;Post v-for=&quot;post in posts&quot; :post=&quot;post&quot; :key=&quot;post.id&quot; /&gt;
+  &lt;/ol&gt;
+&lt;/template&gt;
+</code></pre>
+<p>В данном представлении мы используем компонент <code>Post.vue</code>, который выглядит следующим образом</p>
+<pre><code class="language-js">&lt;script&gt;
+import router from '@/router'
+export default {
+  name: 'post',
+  props: ['post'],
+  methods: {
+    openPost() {
+      router.push({ path: `/posts/${this.post.id}` })
+    },
+  },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;li class=&quot;post&quot; v-on:click=&quot;openPost&quot;&gt;
+    &lt;h3&gt;{{ post.title }}&lt;/h3&gt;
+    &lt;p&gt;by {{ post.author.username }} at {{ post.created_at }}&lt;/p&gt;
+  &lt;/li&gt;
+&lt;/template&gt;
+
+&lt;style scoped&gt;
+.post {
+  cursor: pointer;
+}
+&lt;/style&gt;
+</code></pre>
+<h3 id="viewspostviewvue">views/PostView.vue</h3>
+<p>Также, на каждый пост можно нажать и посмотреть его содержание и комментарии.
+Для этого нам необходимо создать представление</p>
+<pre><code class="language-js">&lt;script&gt;
+import api from '@/api'
+import CommentsView from './CommentsView.vue'
+export default {
+  data() {
+    return { post: { id: this.$route.params.id, title: '', content: '' } }
+  },
+  beforeMount() {
+    api
+      .get(`api/posts/${this.post.id}`)
+      .then((resp) =&gt; resp.data)
+      .then((data) =&gt; (this.post = data))
+      .catch((_) =&gt; alert('Failed to fetch post'))
+  },
+  components: [CommentsView],
+  components: { CommentsView },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h1&gt;{{ post.title }}&lt;/h1&gt;
+  &lt;textarea name=&quot;content&quot; cols=&quot;30&quot; rows=&quot;10&quot; readonly&gt;{{
+    post.content
+  }}&lt;/textarea&gt;
+  &lt;CommentsView :post=&quot;post&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+<h3 id="viewscommentsviewvue">views/CommentsView.vue</h3>
+<p>У каждого поста есть список комментарием, которые определен представлением</p>
+<pre><code class="language-js">&lt;script&gt;
+import api from '@/api'
+import router from '@/router'
+import Comment from '@/components/Comment.vue'
+import { RouterLink } from 'vue-router'
+export default {
+  props: ['post'],
+  data() {
+    return { post: this.$props.post, comments: [] }
+  },
+  methods: {
+    newComment() {
+      router.push({ path: `/posts/${this.post.id}/newcomment` })
+    },
+  },
+  beforeMount() {
+    api
+      .get(`api/post_comments/${this.post.id}`)
+      .then((resp) =&gt; resp.data)
+      .then((data) =&gt; (this.comments = data))
+      .catch((_) =&gt; alert('Failed to fetch comments'))
+  },
+  components: [Comment],
+  components: { Comment, RouterLink },
+}
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;h3&gt;Comments&lt;/h3&gt;
+  &lt;button v-on:click=&quot;newComment&quot;&gt;New comment&lt;/button&gt;
+  &lt;Comment v-for=&quot;comment in comments&quot; :comment=&quot;comment&quot; :key=&quot;comment.id&quot; /&gt;
+&lt;/template&gt;
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../laboratory_work_3/" class="btn btn-neutral float-left" title="Лабораторная работа 3"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../practical_work_3-1/" class="btn btn-neutral float-right" title="Практическая работа 3.1">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../laboratory_work_3/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../practical_work_3-1/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

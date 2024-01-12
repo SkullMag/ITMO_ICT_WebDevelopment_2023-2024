@@ -1,0 +1,604 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Лабораторная работа 1 - Web-Programming</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 1";
+        var mkdocs_page_input_path = "laboratory_work_1.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Web-Programming
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Лабораторная работа 1</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1_1">Задание 1</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_1">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_2">Решение</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">Задание 2</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_3">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_4">Решение</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">Задание 3</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_5">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_6">Решение</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">Задание 4</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_7">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_8">Решение</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5">Задание 5</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#_9">Описание</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#_10">Решение</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_2/">Лабораторная работа 2</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_3/">Лабораторная работа 3</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_4/">Лабораторная работа 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../practical_work_3-1/">Практическая работа 3.1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Web-Programming</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Лабораторная работа 1</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="1">Лабораторная работа 1</h1>
+<h2 id="1_1">Задание 1</h2>
+<h3 id="_1">Описание</h3>
+<p>В данном задании было необходимо реализовать клиентскую и серверную часть приложения. 
+Клиент отсылает серверу сообщение «Hello, server». Сообщение должно отразиться на стороне сервера.
+Сервер в ответ отсылает клиенту сообщение «Hello, client». Сообщение должно
+отобразиться у клиента.</p>
+<h3 id="_2">Решение</h3>
+<p><strong>Серверная часть</strong></p>
+<p>Для начала нам необходимо импортировать библиотеку для работы с сокетами
+и открыть новый сокет. 
+В качестве аргументов мы передаем параметры:</p>
+<ul>
+<li>socket.AF INET - IPv4 сокет</li>
+<li>socket.SOCKDGRAM - UDP</li>
+</ul>
+<pre><code class="language-python">import socket
+
+# Create a new socket object
+# AF_INET - IPv4 address family
+# SOCK_DGRAM - UDP socket type
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+</code></pre>
+<p>Затем нам необходимо привязать сокет к локальному адресу</p>
+<pre><code class="language-python"># Store server address
+server_addr = (&quot;localhost&quot;, 9090)
+
+# Bind a socket to a local address
+sock.bind(server_addr)
+</code></pre>
+<p>Для получения данных и ip-адреса используем функцию <code>recvfrom</code></p>
+<pre><code class="language-python"># Receive data and ip address from a client
+data, client_addr = sock.recvfrom(1024)
+print(data.decode())
+</code></pre>
+<p>Для отправки данных клиенту воспользуемся функцией <code>sendto</code></p>
+<pre><code class="language-python"># Send a response to the client
+sock.sendto(b&quot;Hello, Client!&quot;, client_addr)
+</code></pre>
+<p><strong>Клиентская часть</strong></p>
+<p>Для начала нам необходимо импортировать библиотеку для работы с сокетами
+и открыть новый сокет. 
+В качестве аргументов мы передаем параметры:</p>
+<ul>
+<li>socket.AF INET - IPv4 сокет</li>
+<li>socket.SOCKDGRAM - UDP</li>
+</ul>
+<pre><code class="language-python">import socket
+
+# Create a new socket object
+# AF_INET - IPv4 address family
+# SOCK_DGRAM - UDP socket type
+sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+
+# Store server address
+server_addr = (&quot;localhost&quot;, 9090)
+</code></pre>
+<p>Затем отсылаем данные серверу при помощи команды <code>sendto</code></p>
+<pre><code class="language-python"># Send bytes to the server address
+sock.sendto(b&quot;Hello, Server!&quot;, server_addr)
+</code></pre>
+<p>После этого ожидаем ответ от сервера и печатаем его на экран</p>
+<pre><code class="language-python"># Wait for server reply
+data = sock.recv(1024)
+
+# Print received data
+print(data.decode())
+</code></pre>
+<h2 id="2">Задание 2</h2>
+<h3 id="_3">Описание</h3>
+<p>Реализовать клиентскую и серверную часть приложения. Клиент запрашивает у
+сервера выполнение математической операции, параметры, которые вводятся с
+клавиатуры. Сервер обрабатывает полученные данные и возвращает результат
+клиенту.</p>
+<h3 id="_4">Решение</h3>
+<p><strong>Серверная часть</strong></p>
+<p>Открываем TCP сокет</p>
+<pre><code class="language-python">import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind((&quot;localhost&quot;, 9090))
+sock.listen(1)
+</code></pre>
+<p>Ожидаем подключение к серверу и отсылаем клиенту подсказку о том, 
+что ожидает получить сервер в ответном сообщении</p>
+<pre><code class="language-python">conn, addr = sock.accept()
+print(&quot;Received new connection from&quot;, addr)
+
+conn.send(b&quot;Enter a and b splitted by the space, for example: 10 20&quot;)
+</code></pre>
+<p>Получаем данные, вычисляем сторону по теореме пифагора и отправляем результат клиенту</p>
+<pre><code class="language-python">data = conn.recv(1024)
+
+a, b = list(map(int, data.decode().split()))
+result = (a**2 + b**2)**0.5
+
+conn.sendall(str(result).encode())
+conn.close()
+</code></pre>
+<p><strong>Клиентская часть</strong></p>
+<p>Открываем TCP сокет и подключаемся к серверу</p>
+<pre><code class="language-python">import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+addr = (&quot;localhost&quot;, 9090)
+
+sock.connect(addr)
+</code></pre>
+<p>Получем приветственное сообщение от севера</p>
+<pre><code class="language-python">hello_msg = sock.recv(1024).decode()
+print(hello_msg)
+</code></pre>
+<p>Запрашиваем данные от пользователя из стандартного ввода, отправляем данные 
+на сервер и получаем ответ</p>
+<pre><code class="language-python">data = input().encode()
+sock.send(data)
+print(sock.recv(1024).decode())
+</code></pre>
+<h2 id="3">Задание 3</h2>
+<h3 id="_5">Описание</h3>
+<p>Реализовать серверную часть приложения. Клиент подключается к серверу. В ответ
+клиент получает http-сообщение, содержащее html-страницу, которую сервер
+подгружает из файла index.html.</p>
+<h3 id="_6">Решение</h3>
+<p><strong>Серверная часть</strong></p>
+<p>Создадим функцию, которая будет создавать простой HTTP ответ</p>
+<pre><code class="language-python">def create_http_response(body: str) -&gt; bytes:
+    request = f&quot;HTTP/1.1 200 OK\nContent-Type: text/html; charset=utf-8\nContent-Length: {len(body)}\n\n{body}&quot;
+    return request.encode()
+</code></pre>
+<p>Затем создадим новый сокет, но на этот раз уже TCP (socket.SOCK_STREAM)</p>
+<pre><code class="language-python">sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.bind((&quot;localhost&quot;, 9090))
+sock.listen(1)
+</code></pre>
+<p>Дальше мы ожидаем подключение к нашему серверу и принимаем его при помощи функции <code>accept</code>.
+В данном случае мы используем <code>accept</code>, так как работаем с TCP сокетом и ожидаем подключение</p>
+<pre><code class="language-python">conn, addr = sock.accept()
+</code></pre>
+<p>Затем создаем HTTP запрос с контентом файла <code>index.html</code> и отправляем данные клиенту</p>
+<pre><code class="language-python">conn.sendall(create_http_response(open(&quot;index.html&quot;).read()))
+conn.close()
+</code></pre>
+<p><strong>Клиентская часть</strong></p>
+<p>Определим функцию для считывания всех данных из сокета и парсинга тела HTTP-запроса</p>
+<pre><code class="language-python">def socket_read_all(s: socket.socket, chunk_size=1024) -&gt; bytes:
+    result = b&quot;&quot;
+    while (chunk := s.recv(chunk_size)) != b&quot;&quot;:
+        result += chunk
+    return result
+
+def read_http_body(response: bytes) -&gt; str:
+    lines = response.decode().splitlines()
+    body_start = next((i for i, line in enumerate(lines) if line == &quot;&quot;), -1)
+    if body_start == -1:
+        raise ValueError(&quot;invalid http response&quot;)
+    return &quot;\n&quot;.join(lines[body_start + 1:])
+</code></pre>
+<p>После этого создаем сокет, выполняем подключение к серверу, считываем все данные от сервера и печатаем ответа на экран</p>
+<pre><code class="language-python">sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((&quot;localhost&quot;, 9090))
+
+data = socket_read_all(sock)
+body = read_http_body(data)
+
+print(body)
+</code></pre>
+<h2 id="4">Задание 4</h2>
+<h3 id="_7">Описание</h3>
+<p>Реализовать двухпользовательский или многопользовательский чат. Реализация
+многопользовательского часа позволяет получить максимальное количество
+баллов.</p>
+<h3 id="_8">Решение</h3>
+<p><strong>Протокол для отправки сообщений</strong></p>
+<p>Каждое сообщение состоит из заголовка - 4 байт big-endian, описывающие длину сообщения. Остальные 
+N байт - сообщение. Ниже описаны функции создания и получения сообщения</p>
+<pre><code class="language-python">def recv_msg(conn: socket.socket) -&gt; tuple[bytes, bytes]:
+    msg_header = conn.recv(4)
+    if msg_header == b&quot;&quot;:
+        return
+    length = struct.unpack(&quot;&gt;I&quot;, msg_header)[0]
+    return conn.recv(length)
+
+
+def create_msg(msg: str):
+    msg = msg.encode()
+    return struct.pack(&quot;&gt;I&quot;, len(msg)) + msg
+</code></pre>
+<p><strong>Серверная часть</strong>
+Для начала откроем TCP сокет и создадим список для хранения активных подключений.</p>
+<pre><code class="language-python">HOST = &quot;localhost&quot;
+PORT = 9090
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+sock.bind((HOST, PORT))
+sock.listen(os.cpu_count())
+connections: list[socket.socket] = []
+</code></pre>
+<p>Затем начинаем ожидать новые подключения к нашему серверу.
+После успешного подключения отправляем клиенту привественное сообщение, добавляем его 
+в список активных клиентов и создаем для обработки его запросов отдельный поток. </p>
+<pre><code class="language-python">def handle_connections(sock: socket.socket):
+    print(&quot;Server listening on&quot;, HOST, &quot;port&quot;, PORT)
+
+    while True:
+        # Accept client connections
+        conn, addr = sock.accept()
+        print(&quot;New connection&quot;, addr)
+
+        conn.send(WELCOME_MESSAGE)
+
+        send_message_to_clients(f&quot;New user has joined: {addr}&quot;.encode(), (&quot;Server&quot;, &quot;&quot;))
+
+        connections.append((conn, addr))
+
+        # Create a new thread to handle the client
+        client_thread = threading.Thread(
+            target=handle_client,
+            args=(
+                conn,
+                addr,
+            ),
+        )
+        client_thread.start()
+</code></pre>
+<p>Функция для обработки сообщений пользователя ждет сообщения от него, а также отключает клиента
+при получении сообщения <em>"quit"</em></p>
+<pre><code class="language-python">def handle_client(conn: socket.socket, addr: tuple):
+    try:
+        while (msg := recv_msg(conn)) is not None and msg != b&quot;quit&quot;:
+            send_message_to_clients(msg, addr)
+    finally:
+        conn.close()
+</code></pre>
+<p>Также определена функция, которая отправляет сообщение всем клиентам данного чата
+и удаляет неиспользуемые подключения</p>
+<pre><code class="language-python">def send_message_to_clients(msg: bytes, addr: tuple):
+    global connections
+
+    payload = create_msg(f&quot;{addr[0]}:{addr[1]}: &quot;.encode() + msg + b&quot;\n&quot;)
+
+    # Send message to all connected users
+    indexes = set()
+    for i, (conn, conn_addr) in enumerate(connections):
+        if addr == conn_addr:
+            continue
+        try:
+            conn.send(payload)
+        except OSError:
+            indexes.add(i)
+
+    # Remove disconnected users
+    indexes = list(indexes)
+    indexes.reverse()
+    for i in indexes:
+        connections.pop(i)
+</code></pre>
+<p><strong>Клиентская часть</strong></p>
+<p>Для начала коммуникации в чате создаем сокет, подключаемся к серверу и ждем сообщения
+из стандартного ввода от пользователя. Также мы создаем отдельный поток для обработки сообщений от сервера, так как иначе стандартный ввод будет блокировать получение сообщений</p>
+<pre><code class="language-python"># Init socket
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+sock.connect((HOST, PORT))
+
+# Create thread for handling servers' messages
+t = threading.Thread(target=handle_messages, args=(sock,))
+t.start()
+
+while True:
+    try:
+        # Get users' input and send it to the server
+        sock.sendall(create_msg(input(INPUT_PROMPT)))
+    except OSError:
+        break
+</code></pre>
+<p>Функция по обработке сообщений с сервера получает сообщения в нашем формате и закрывает сокет,
+если мы получили пустой ответ от сервера</p>
+<pre><code class="language-python">def handle_messages(conn: socket.socket):
+    while (msg := recv_msg(conn)) is not None and msg != b&quot;&quot;:
+        print(f&quot;\n{msg.decode()}\n{INPUT_PROMPT}&quot;, end=&quot;&quot;)
+    sock.close()
+    print(&quot;LEAVING&quot;)
+</code></pre>
+<h2 id="5">Задание 5</h2>
+<h3 id="_9">Описание</h3>
+<p>Необходимо написать простой web-сервер для обработки GET и POST http
+запросов средствами Python и библиотеки socket.</p>
+<p>Задание: сделать сервер, который может:
+* Принять и записать информацию о дисциплине и оценке по дисциплине.
+* Отдать информацию обо всех оценах по дсициплине в виде html-страницы.</p>
+<h3 id="_10">Решение</h3>
+<p><strong>Серверная часть</strong></p>
+<p>Создадим классы для хранения данных о запросах, ответах и HTTP методах</p>
+<pre><code class="language-python">class HTTPMethod(Enum):
+    GET = &quot;GET&quot;
+    POST = &quot;POST&quot;
+
+
+@dataclass
+class HTTPRequest:
+    method: HTTPMethod
+    protocol: str
+    path: str
+    headers: dict[str, str]
+    body: bytes
+
+
+@dataclass
+class HTTPResponse:
+    status: int
+    headers: dict[str, str]
+    body: bytes
+    protocol: str = &quot;HTTP/1.1&quot;
+
+    def __bytes__(self):
+        headers_str = &quot;\n&quot;.join(f&quot;{key}: {val}&quot; for key, val in self.headers.items())
+        return f&quot;{self.protocol} {self.status} {HTTPStatus(self.status).phrase}\n{headers_str}\n\n&quot;.encode() + self.body
+</code></pre>
+<p>Хранить наши оценки мы будем в контейнере <code>defaultdict</code></p>
+<pre><code class="language-python">SCORES = defaultdict(list)
+</code></pre>
+<p>В нашем классе <code>HTTPServer</code> определим функции контекстного менеджера </p>
+<pre><code class="language-python">
+def __enter__(self):
+    self.__socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    return self
+
+def __exit__(self, *_):
+    logging.info(&quot;Shutting down the server&quot;)
+    self.__socket.close()
+
+</code></pre>
+<p>Определим функцию для парсинга запроса от клиента</p>
+<pre><code class="language-python">def __parse_request(self, conn: socket.socket) -&gt; HTTPRequest:
+    f = conn.recv(1024 * 6)
+    lines = f.splitlines()
+
+    # Parse start-line
+    try:
+        method, path, protocol = lines[0].decode().strip().split()
+    except IndexError:
+        raise Exception(&quot;Malformed start-line&quot;)
+
+    # Parse headers
+    headers: dict[str, str] = {}
+    index = 1
+    req_generator = ((n, i.decode()) for n, i in enumerate(lines[1:], 1))
+    while (data := next(req_generator, None)) is not None and data[1].strip() != &quot;&quot;:
+        index, header = data
+        try:
+            key, val = header.split(&quot;:&quot;)
+            headers[key.lower()] = val.strip()
+        except ValueError:
+            raise Exception(&quot;Malformed headers&quot;)
+
+    # Parse body
+    body = b&quot;&quot;.join(lines[index + 2 :])
+    return HTTPRequest(HTTPMethod(method), protocol, path, headers, body)
+</code></pre>
+<p>Логика по обработке запроса достаточно проста</p>
+<ol>
+<li>Парсим запрос от клиента</li>
+<li>Обрабатываем запрос и создаем ответ</li>
+<li>Отправляем ответ клиенту</li>
+</ol>
+<pre><code class="language-python">def __handle_client(self, conn: socket.socket):
+    req = self.__parse_request(conn)
+    resp = self.__handle_request(req)
+    self.__send_response(conn, resp)
+
+def __send_response(self, conn: socket.socket, resp: HTTPResponse):
+    logging.info(f&quot;Sent {conn.send(bytes(resp))} bytes&quot;)
+</code></pre>
+<p>Функция для обработки запроса выглядит так</p>
+<pre><code class="language-python">def __handle_request(self, req: HTTPRequest):
+    logging.info(f&quot;Got {req.method} request {req.path}&quot;)
+    if req.method == HTTPMethod.GET and req.path.startswith(&quot;/scores&quot;):
+        query_params = parse_qs(urlparse(req.path).query)
+        if &quot;subject&quot; not in query_params:
+            return HTTPResponse(
+                status=400,
+                headers={&quot;Content-Type&quot;: &quot;application/json&quot;},
+                body=json.dumps({&quot;detail&quot;: &quot;subject query param was not specified&quot;}).encode(),
+            )
+        return HTTPResponse(
+            status=200,
+            headers={&quot;Content-Type&quot;: &quot;application/json&quot;},
+            body=json.dumps({&quot;score&quot;: SCORES[query_params[&quot;subject&quot;][0]]}).encode(),
+        )
+    elif req.method == HTTPMethod.POST and req.path.startswith(&quot;/subject&quot;):
+        query_params = parse_qs(urlparse(req.path).query)
+        if &quot;name&quot; not in query_params:
+            return HTTPResponse(
+                status=400,
+                headers={&quot;Content-Type&quot;: &quot;application/json&quot;},
+                body=json.dumps({&quot;detail&quot;: &quot;name query param was not specified&quot;}).encode(),
+            )
+        if &quot;score&quot; not in query_params:
+            return HTTPResponse(
+                status=400,
+                headers={&quot;Content-Type&quot;: &quot;application/json&quot;},
+                body=json.dumps({&quot;detail&quot;: &quot;score query param was not specified&quot;}).encode(),
+            )
+        SCORES[query_params[&quot;name&quot;][0]].append(query_params[&quot;score&quot;][0])
+        return HTTPResponse(status=200, headers={}, body=b&quot;&quot;)
+    return HTTPResponse(status=404, headers={}, body=b&quot;&quot;)
+</code></pre>
+<p><strong>Клиентская часть</strong></p>
+<p>GET запрос</p>
+<pre><code class="language-python">import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((&quot;localhost&quot;, 9090))
+sock.send(b&quot;GET /scores?subject=test HTTP/1.1\nContent-Type: text&quot;)
+print(sock.recv(1024 * 4).decode())
+</code></pre>
+<p>POST запрос</p>
+<pre><code class="language-python">import socket
+
+sock = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+sock.connect((&quot;localhost&quot;, 9090))
+sock.send(b&quot;POST /subject?name=test&amp;score=10 HTTP/1.1\nContent-Type: text&quot;)
+print(sock.recv(1024 * 4).decode())
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href=".." class="btn btn-neutral float-left" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../laboratory_work_2/" class="btn btn-neutral float-right" title="Лабораторная работа 2">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href=".." style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../laboratory_work_2/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

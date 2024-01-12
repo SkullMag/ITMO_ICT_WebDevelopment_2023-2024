@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <link rel="shortcut icon" href="../img/favicon.ico" />
+    <title>Лабораторная работа 3 - Web-Programming</title>
+    <link rel="stylesheet" href="../css/theme.css" />
+    <link rel="stylesheet" href="../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "\u041b\u0430\u0431\u043e\u0440\u0430\u0442\u043e\u0440\u043d\u0430\u044f \u0440\u0430\u0431\u043e\u0442\u0430 3";
+        var mkdocs_page_input_path = "laboratory_work_3.md";
+        var mkdocs_page_url = null;
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href=".." class="icon icon-home"> Web-Programming
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="..">Home</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_1/">Лабораторная работа 1</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_2/">Лабораторная работа 2</a>
+                </li>
+              </ul>
+              <ul class="current">
+                <li class="toctree-l1 current"><a class="reference internal current" href="./">Лабораторная работа 3</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#_1">Задание</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#modelspy">models.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#serializerspy">serializers.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#viewspy">views.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#settingspy">settings.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#urlspy">urls.py</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#endpoints">Endpoints</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#posts">Posts</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses">Success Responses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_1">Success Responses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#users">Users</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_2">Success Responses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_3">Success Responses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#comments">Comments</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_4">Success Responses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_5">Success Responses</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#follows">Follows</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_6">Success Responses</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#success-responses_7">Success Responses</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../laboratory_work_4/">Лабораторная работа 4</a>
+                </li>
+              </ul>
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../practical_work_3-1/">Практическая работа 3.1</a>
+                </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="..">Web-Programming</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a> &raquo;</li>
+      <li class="breadcrumb-item active">Лабораторная работа 3</li>
+    <li class="wy-breadcrumbs-aside">
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <h1 id="3">Лабораторная работа 3</h1>
+<h2 id="_1">Задание</h2>
+<p>Реализация серверной части приложения средствами django и djangorestframework для проекта "Блог"</p>
+<h2 id="modelspy">models.py</h2>
+<p>У пользователя будут дополнительные поля для описания профиля и его фотографии</p>
+<pre><code class="language-python">class User(AbstractUser):
+  bio = models.TextField(blank=True)
+  profile_picture = models.ImageField(upload_to=&quot;profile_pics/&quot;, blank=True, null=True)
+
+</code></pre>
+<p>У каждой публицкации есть автор, текст самой публикации, дата создания и количество лайков</p>
+<pre><code class="language-python">class Post(models.Model):
+  author = models.ForeignKey(User, on_delete=models.CASCADE, related_name=&quot;posts&quot;)
+  content = models.TextField()
+  created_at = models.DateTimeField(auto_now_add=True)
+  likes = models.ManyToManyField(User, related_name=&quot;liked_posts&quot;, blank=True)
+
+</code></pre>
+<p>Для каждого поста также будет возможность оставить комментарий. Создадим модель, которая будет хранить в себе публикацию и пользователя, а также текст самого комментария.</p>
+<pre><code class="language-python">class Comment(models.Model):
+  post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name=&quot;comments&quot;)
+  author = models.ForeignKey(User, on_delete=models.CASCADE)
+  content = models.TextField()
+  created_at = models.DateTimeField(auto_now_add=True)
+
+</code></pre>
+<p>Пользователь может подписаться на обновления другого пользователя</p>
+<pre><code class="language-python">class Follow(models.Model):
+  follower = models.ForeignKey(User, on_delete=models.CASCADE, related_name=&quot;following&quot;)
+  followed = models.ForeignKey(User, on_delete=models.CASCADE, related_name=&quot;followers&quot;)
+  created_at = models.DateTimeField(auto_now_add=True)
+</code></pre>
+<h2 id="serializerspy">serializers.py</h2>
+<p>Для CRUD операция над моделями через API нам необходимо написать <code>ModelSerializer</code> для каждой модели.</p>
+<p>В <code>MyUserSerializer</code> нам необходимо переопределить метод <code>create</code>, так как у нас кастомная модель пользователя и нам нужно сохранять хеш пароля в базу</p>
+<pre><code class="language-python">class MyUserSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = User
+    fields = (
+      &quot;id&quot;,
+      &quot;password&quot;,
+      &quot;username&quot;,
+      &quot;email&quot;,
+      &quot;first_name&quot;,
+      &quot;last_name&quot;,
+      &quot;bio&quot;,
+      &quot;profile_picture&quot;,
+    )
+  def create(self, validated_data):
+    return super().create({**validated_data, &quot;password&quot;: make_password(validated_data[&quot;password&quot;])})
+</code></pre>
+<p>Все остальные классы остаются без переопределений методов и выглядят следующим образом:</p>
+<pre><code class="language-python">class PostSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Post
+    fields = (&quot;id&quot;, &quot;author&quot;, &quot;content&quot;, &quot;created_at&quot;, &quot;likes&quot;)
+
+class CommentSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Comment
+    fields = (&quot;id&quot;, &quot;post&quot;, &quot;author&quot;, &quot;content&quot;, &quot;created_at&quot;)
+
+class FollowSerializer(serializers.ModelSerializer):
+  class Meta:
+    model = Follow
+    fields = (&quot;id&quot;, &quot;follower&quot;, &quot;followed&quot;, &quot;created_at&quot;)
+</code></pre>
+<h2 id="viewspy">views.py</h2>
+<p>Класс <code>viewsets.ModelViewSet</code> из модуля <code>rest_framework</code> позволяет нам с легкостью создать представления для наших моделей данных без написания дополнительной логике по обработке запросов</p>
+<pre><code class="language-python">class UserViewSet(viewsets.ModelViewSet):
+  queryset = User.objects.all()
+  serializer_class = MyUserSerializer
+
+class PostViewSet(viewsets.ModelViewSet):
+  queryset = Post.objects.all()
+  serializer_class = PostSerializer
+
+class CommentViewSet(viewsets.ModelViewSet):
+  queryset = Comment.objects.all()
+  serializer_class = CommentSerializer
+
+class FollowViewSet(viewsets.ModelViewSet):
+  queryset = Follow.objects.all()
+  serializer_class = FollowSerializer
+</code></pre>
+<h2 id="settingspy">settings.py</h2>
+<p>Нам необходимо установить несколько модулей, необходимых для авторизации, создания API и генерации документации</p>
+<pre><code class="language-python">INSTALLED_APPS = [
+  ...
+  &quot;blog_app&quot;,
+  &quot;rest_framework&quot;,
+  &quot;rest_framework.authtoken&quot;,
+  &quot;djoser&quot;,
+  &quot;django_extensions&quot;,
+  &quot;drf_yasg&quot;,
+]
+</code></pre>
+<p>Для того, чтобы <code>djoser</code> знал о том, какой serializer использовать для модели пользователя, нам необходимо указать путь до класса</p>
+<pre><code class="language-python">DJOSER = {
+  &quot;SERIALIZERS&quot;: {
+    &quot;user_create&quot;: &quot;blog_app.serializers.MyUserSerializer&quot;,
+  },
+}
+</code></pre>
+<p>По умолчанию все пути нашего сервера будут доступны без авторизации. Нам необходимо обратное, поэтому укажем права доступа в данном файле</p>
+<pre><code class="language-python">REST_FRAMEWORK = {
+  &quot;DEFAULT_PERMISSION_CLASSES&quot;: [&quot;rest_framework.permissions.IsAuthenticated&quot;],
+  &quot;DEFAULT_AUTHENTICATION_CLASSES&quot;: [
+    &quot;rest_framework.authentication.TokenAuthentication&quot;,
+  ],
+}
+</code></pre>
+<h2 id="urlspy">urls.py</h2>
+<p>Определим пути нашего сервера. Для клиента будут доступны
+- <code>api/</code>
+- <code>auth/</code>
+- <code>admin/</code>
+- <code>profile_pics/</code>
+- <code>swagger/</code></p>
+<pre><code class="language-python"># Project
+urlpatterns = [
+  path(&quot;admin/&quot;, admin.site.urls),
+  path(&quot;api/&quot;, include(&quot;blog_app.urls&quot;)),
+  path(&quot;auth/&quot;, include(&quot;djoser.urls&quot;)),
+  path(&quot;auth/&quot;, include(&quot;djoser.urls.authtoken&quot;)),
+  re_path(
+    r&quot;^profile_pics/(?P&lt;path&gt;.*)$&quot;,
+    serve,
+    {
+      &quot;document_root&quot;: &quot;profile_pics/&quot;,
+    },
+  ),
+  path(
+    &quot;swagger/&quot;,
+    schema_view.with_ui(&quot;swagger&quot;, cache_timeout=0),
+    name=&quot;schema-swagger-ui&quot;,
+  ),
+]
+</code></pre>
+<p>Более того доступные пути в <code>api/</code>
+- <code>users/</code>
+- <code>posts/</code>
+- <code>comments/</code>
+- <code>follows/</code></p>
+<pre><code class="language-python"># App
+r = DefaultRouter()
+r.register('users', UserViewSet)
+r.register('posts', PostViewSet)
+r.register('comments', CommentViewSet)
+r.register('follows', FollowViewSet)
+urlpatterns = r.urls
+</code></pre>
+<h2 id="endpoints">Endpoints</h2>
+<h3 id="posts">Posts</h3>
+<p><strong>URL</strong> : <code>/api/posts/</code></p>
+<p><strong>Method</strong> : <code>GET, POST</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content POST</strong> :</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;author&quot;: 3,
+    &quot;content&quot;: &quot;test&quot;,
+    &quot;created_at&quot;: &quot;2023-12-12T08:10:55.596943Z&quot;,
+    &quot;likes&quot;: []
+}
+</code></pre>
+<p><strong>Content GET</strong> :</p>
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 1,
+        &quot;author&quot;: 3,
+        &quot;content&quot;: &quot;test&quot;,
+        &quot;created_at&quot;: &quot;2023-12-12T08:10:55.596943Z&quot;,
+        &quot;likes&quot;: []
+    }
+]
+</code></pre>
+<p><strong>URL</strong> : <code>/api/posts/&lt;int:pk&gt;</code></p>
+<p><strong>Method</strong> : <code>GET, PUT, PATCH, DELETE</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_1">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;author&quot;: 3,
+    &quot;content&quot;: &quot;test&quot;,
+    &quot;created_at&quot;: &quot;2023-12-12T08:10:55.596943Z&quot;,
+    &quot;likes&quot;: []
+}
+</code></pre>
+<h3 id="users">Users</h3>
+<p><strong>URL</strong> : <code>/api/users/</code></p>
+<p><strong>Method</strong> : <code>GET, POST</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_2">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">{
+  &quot;id&quot;: 4,
+  &quot;password&quot;: &quot;pbkdf2_sha256$600000$F7f3v7MCJGoP6McdUIbVhy$1C2QmGpBE2qMVXQ7OmdeVMKr/S39AO1ZODnIZDJ56zE=&quot;,
+  &quot;username&quot;: &quot;cruser&quot;,
+  &quot;email&quot;: &quot;&quot;,
+  &quot;first_name&quot;: &quot;&quot;,
+  &quot;last_name&quot;: &quot;&quot;,
+  &quot;bio&quot;: &quot;&quot;,
+  &quot;profile_picture&quot;: null
+}
+</code></pre>
+<p><strong>URL</strong> : <code>/api/users/&lt;int:pk&gt;</code></p>
+<p><strong>Method</strong> : <code>GET, PUT, PATCH, DELETE</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_3">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">{
+  &quot;email&quot;: &quot;&quot;,
+  &quot;id&quot;: 3,
+  &quot;username&quot;: &quot;oleg&quot;
+}
+</code></pre>
+<h3 id="comments">Comments</h3>
+<p><strong>URL</strong> : <code>/api/comments/</code></p>
+<p><strong>Method</strong> : <code>GET, POST</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_4">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 1,
+        &quot;post&quot;: 1,
+        &quot;author&quot;: 3,
+        &quot;content&quot;: &quot;test text&quot;,
+        &quot;created_at&quot;: &quot;2023-12-12T08:19:47.471546Z&quot;
+    }
+]
+</code></pre>
+<p><strong>URL</strong> : <code>/api/comments/&lt;int:pk&gt;</code></p>
+<p><strong>Method</strong> : <code>GET, PUT, PATCH, DELETE</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_5">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;post&quot;: 1,
+    &quot;author&quot;: 3,
+    &quot;content&quot;: &quot;test text&quot;,
+    &quot;created_at&quot;: &quot;2023-12-12T08:19:47.471546Z&quot;
+}
+</code></pre>
+<h3 id="follows">Follows</h3>
+<p><strong>URL</strong> : <code>/api/follows/</code></p>
+<p><strong>Method</strong> : <code>GET, POST</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_6">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">[
+    {
+        &quot;id&quot;: 1,
+        &quot;follower&quot;: 3,
+        &quot;followed&quot;: 3,
+        &quot;created_at&quot;: &quot;2023-12-12T08:20:54.252996Z&quot;
+    }
+]
+</code></pre>
+<p><strong>URL</strong> : <code>/api/follows/&lt;int:pk&gt;</code></p>
+<p><strong>Method</strong> : <code>GET, PUT, PATCH, DELETE</code></p>
+<p><strong>Auth required</strong> : YES</p>
+<p><strong>Permissions required</strong> : IsAuthenticated</p>
+<h4 id="success-responses_7">Success Responses</h4>
+<p><strong>Code</strong> : <code>200 OK</code></p>
+<p><strong>Content</strong> :</p>
+<pre><code class="language-json">{
+    &quot;id&quot;: 1,
+    &quot;follower&quot;: 3,
+    &quot;followed&quot;: 3,
+    &quot;created_at&quot;: &quot;2023-12-12T08:20:54.252996Z&quot;
+}
+</code></pre>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../laboratory_work_2/" class="btn btn-neutral float-left" title="Лабораторная работа 2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../laboratory_work_4/" class="btn btn-neutral float-right" title="Лабораторная работа 4">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+    
+      <span><a href="../laboratory_work_2/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../laboratory_work_4/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
